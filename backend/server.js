@@ -9,12 +9,24 @@ import authRouter from './routes/authRoutes.js'
 const app = express();
 const port = process.env.PORT || 3000;
 connectDB();
-const allowedOrigins = process.env.FRONTEND_URI;
+
+// parse FRONTEND_URI as comma separated list, fallback to allow all in dev
+const allowedOriginsEnv = process.env.FRONTEND_URI || '';
+const allowedOrigins = allowedOriginsEnv.split(',').map(s => s.trim()).filter(Boolean);
 
 app.use(express.json());
 app.use(cookieParser());
-// app.use(cors({credentials: true}));
-app.use(cors({ origin: allowedOrigins, credentials: true }));
+
+// allow requests with no origin (native apps) and check allowedOrigins when present
+app.use(cors({
+  origin: (origin, callback) => {
+    if (!origin) return callback(null, true); // allow non-browser requests
+    if (allowedOrigins.length === 0) return callback(null, true); // allow all when not configured
+    if (allowedOrigins.includes(origin)) return callback(null, true);
+    return callback(new Error('CORS not allowed'), false);
+  },
+  credentials: true
+}));
 
 // API Endpoints
 app.get('/',(req,res) => {
