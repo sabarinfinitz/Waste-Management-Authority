@@ -1,69 +1,64 @@
 # Learn more https://docs.github.com/en/get-started/getting-started-with-git/ignoring-files
 
-# dependencies
+# Git ignore for Waste_Managment_Authority_MobileApp
+
+# Node dependencies
 node_modules/
+**/node_modules/
 
 # Expo
 .expo/
-dist/
-web-build/
+.expo-shared/
 expo-env.d.ts
+web-build/
 
-# Native
+# OCR tester (separate Expo app)
+frontend/ocr-tester/node_modules/
+frontend/ocr-tester/.expo/
+
+# Native build artifacts
+/android/
+/ios/
 .kotlin/
-*.orig.*
-*.jks
-*.p8
-*.p12
-*.key
-*.mobileprovision
+
+# Build / output
+dist/
+build/
 
 # Metro
 .metro-health-check*
 
-# debug
-npm-debug.*
-yarn-debug.*
-yarn-error.*
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+logs/
+
+# Environment files (DO NOT commit secrets)
+.env
+.env.*
+backend/.env
+frontend/.env
+frontend/ocr-tester/.env
 
 # macOS
 .DS_Store
-*.pem
 
-# local env files
-.env*.local
-backend/.env
-frontend/.env
-
-# typescript
-*.tsbuildinfo
-
-# generated native folders
-/ios
-/android
-
-# Node / Expo
-node_modules/
-.expo/
-npm-debug.log
-yarn-error.log
-
-# environment files
-backend/.env
-frontend/.env
-.env
-.env.local
-
-# OS files
-.DS_Store
+# Windows
 Thumbs.db
+
+# Keys, certificates
+*.jks
+*.p8
+*.p12
+*.key
+*.pem
+*.mobileprovision
+
+# TypeScript
+*.tsbuildinfo
 
 # IDE
 .vscode/
 .idea/
-# optionally built artifacts
-dist/
-build/
-android/
-ios/
 
