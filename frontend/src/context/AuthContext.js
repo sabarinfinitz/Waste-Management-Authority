@@ -11,6 +11,22 @@ export const AuthProvider = ({ children }) => {
   // Login
 const login = async (email, password) => {
   try {
+    // Bypass login for testing - hardcoded admin credentials
+    if (email === "admin2@gmail.com" && password === "admin") {
+      const testUser = {
+        _id: "test-admin-id",
+        name: "Test Admin",
+        email: "admin2@gmail.com",
+        role: "admin",
+        isApproved: true
+      };
+      
+      await AsyncStorage.setItem("token", "test-token-12345");
+      setUser(testUser);
+      setError("");
+      return { success: true, message: "Login successful (Test Mode)" };
+    }
+    
     const { data } = await api.post("/auth/login", { email, password });
 
     if (!data.success) {

@@ -41,6 +41,9 @@ import CheckDataScreen from "../screens/Manager/CheckDataScreen";
 import HistoryStaffScreen from "../screens/Manager/HistoryManagersScreen";
 import ViewTasksScreen from "../screens/Manager/ViewTasksScreen";
 
+// OCR Test Screen
+import OCRTestScreen from "../screens/OCRTestScreen";
+
 const Stack = createNativeStackNavigator();
 
 export default function AppNavigator() {
@@ -99,6 +102,9 @@ export default function AppNavigator() {
             <Stack.Screen name="ViewTasksScreen" component={ViewTasksScreen} />
             <Stack.Screen name="CheckDataScreen" component={CheckDataScreen} />
             <Stack.Screen name="HistoryStaffScreen" component={HistoryStaffScreen} />
+            
+            {/* OCR Test Screen */}
+            <Stack.Screen name="OCRTestScreen" component={OCRTestScreen} />
           </>
         )}
       </Stack.Navigator>

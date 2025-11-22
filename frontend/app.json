@@ -11,7 +11,11 @@
       "image": "./assets/splash-icon.png"
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "infoPlist": {
+        "NSCameraUsageDescription": "This app needs camera access to capture images for weight detection",
+        "NSPhotoLibraryUsageDescription": "This app needs photo library access to select images for weight detection"
+      }
     },
     "android": {
       "adaptiveIcon": {
@@ -19,7 +23,12 @@
         "backgroundColor": "#ffffff"
       },
       "edgeToEdgeEnabled": true,
-      "package": "com.roshanpatel13.Decathlon"
+      "package": "com.roshanpatel13.Decathlon",
+      "permissions": [
+        "CAMERA",
+        "READ_EXTERNAL_STORAGE",
+        "WRITE_EXTERNAL_STORAGE"
+      ]
     },
     "web": {
       "favicon": "./assets/favicon.png"
@@ -28,6 +37,7 @@
       "eas": {
         "projectId": "3ad120f0-40ee-467d-b863-5f5b933ff86e"
       }
-    }
+    },
+    "plugins": []
   }
 }

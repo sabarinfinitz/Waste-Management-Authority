@@ -4,7 +4,10 @@ import { Platform } from "react-native";
 
 // Local backend (development)
 // Change PORT if your local server uses a different port
-const LOCAL_BACKEND = "http://localhost:4000/api";
+const LOCAL_BACKEND = "http://172.16.27.205:4000/api";
+
+// For mobile device testing, use your computer's IP address instead of localhost
+// const LOCAL_BACKEND = "http://192.168.1.100:4000/api"; // Replace with your IP
 
 // Always use local backend for development / testing (no Render dependency)
 const baseURL = LOCAL_BACKEND;

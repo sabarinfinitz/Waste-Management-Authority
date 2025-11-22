@@ -22,6 +22,21 @@ export default function LoginScreen({ navigation }) {
 
   const handleLogin = async () => {
     if (!email || !password) return setMessage("Please fill all fields");
+    
+    // Bypass login for testing
+    if (email === "admin2@gmail.com" && password === "admin") {
+      setLoading(true);
+      try {
+        const res = await login(email, password);
+        setMessage(res.message || "");
+      } catch {
+        setMessage("Login failed. Please try again.");
+      } finally {
+        setLoading(false);
+      }
+      return;
+    }
+    
     setLoading(true);
     try {
       const res = await login(email, password);

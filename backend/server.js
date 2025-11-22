@@ -5,6 +5,7 @@ dotenv.config({quiet: true});
 import cookieParser from 'cookie-parser';
 import connectDB from './config/mongodb.js';
 import authRouter from './routes/authRoutes.js'
+import ocrRouter from './routes/ocrRoutes.js';
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -34,7 +35,8 @@ app.get('/',(req,res) => {
 })
 
 app.use('/api/auth',authRouter)
+app.use('/api/ocr',ocrRouter)
 
-app.listen(port,() => {
+app.listen(port, '0.0.0.0', () => {
     console.log(`Server is running at ${port}`)
 })

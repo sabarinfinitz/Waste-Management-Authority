@@ -78,6 +78,14 @@ export default function ManageDataAdminScreen({ navigation }) {
             <MaterialIcons name="delete" size={22} color="#fff" />
             <Text style={styles.actionText}>Delete Data</Text>
           </TouchableOpacity>
+
+          <TouchableOpacity
+            style={[styles.actionButton, { backgroundColor: "#8b5cf6" }]}
+            onPress={() => navigation.navigate("OCRTestScreen")}
+          >
+            <MaterialIcons name="camera-alt" size={22} color="#fff" />
+            <Text style={styles.actionText}>OCR Weight Detection</Text>
+          </TouchableOpacity>
         </View>
       </ScrollView>
     </View>
