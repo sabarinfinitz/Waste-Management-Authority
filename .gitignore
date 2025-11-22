@@ -1,7 +1,7 @@
 # Learn more https://docs.github.com/en/get-started/getting-started-with-git/ignoring-files
 
 # Git ignore for Waste_Managment_Authority_MobileApp
-
+official-repo/
 # Node dependencies
 node_modules/
 **/node_modules/
@@ -62,3 +62,4 @@ Thumbs.db
 .vscode/
 .idea/
 
+ph1.jpeg
